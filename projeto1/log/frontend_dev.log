@@ -1,0 +1,31 @@
+Aug 15 10:33:50 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/storage/sfSessionStorage.class.php on line 72 (session_name(): Cannot change session name when headers already sent)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/storage/sfSessionStorage.class.php on line 84 (session_set_cookie_params(): Cannot change session cookie parameters when headers already sent)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/storage/sfSessionStorage.class.php on line 93 (session_start(): Cannot start session when headers already sent)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/user/sfBasicSecurityUser.class.php on line 257 (ini_set(): Headers already sent. You cannot change the session module's ini settings at this time)
+Aug 15 10:33:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Aug 15 10:33:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Aug 15 10:33:50 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 409 (preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 409 (preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead)
+Aug 15 10:33:50 symfony [info] {sfPHPView} Render "/opt/symfony1-1.4.20/lib/controller/default/templates/indexSuccess.php"
+Aug 15 10:33:50 symfony [info] {sfPHPView} Decorate content with "/opt/symfony1-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Aug 15 10:33:50 symfony [info] {sfPHPView} Render "/opt/symfony1-1.4.20/lib/controller/default/templates/defaultLayout.php"
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 336 (Cannot modify header information - headers already sent by (output started at /opt/symfony1-1.4.20/lib/util/sfToolkit.class.php:351))
+Aug 15 10:33:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 409 (preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 357 (Cannot modify header information - headers already sent by (output started at /opt/symfony1-1.4.20/lib/util/sfToolkit.class.php:351))
+Aug 15 10:33:50 symfony [info] {sfWebResponse} Send header ": text/html"
+Aug 15 10:33:50 symfony [info] {sfWebDebugLogger} Configuration 14.74 ms (9)
+Aug 15 10:33:50 symfony [info] {sfWebDebugLogger} Factories 25.70 ms (1)
+Aug 15 10:33:50 symfony [info] {sfWebDebugLogger} Action "default/index" 0.02 ms (1)
+Aug 15 10:33:50 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 2.19 ms (1)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/response/sfWebResponse.class.php on line 409 (preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [warning] {sfWebDebugLogger}  Warning at /opt/symfony1-1.4.20/lib/yaml/sfYamlInline.php(138) : runtime-created function on line 1 (A non-numeric value encountered)
+Aug 15 10:33:50 symfony [info] {sfWebResponse} Send content (29144 o)

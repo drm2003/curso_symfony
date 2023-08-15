@@ -1,0 +1,85 @@
+upstream atom {
+   server unix:/run/php/php7.4-fpm.sock;
+}
+
+server {
+
+   listen 8080;
+   root /app/web;
+
+   # http://wiki.nginx.org/HttpCoreModule#server_name
+   # _ means catch any, but it's better if you replace this with your server
+   # name, e.g. archives.foobar.com
+   server_name _;
+
+   client_max_body_size 72M;
+
+      location / {
+      try_files $uri  /index.php?$args;
+   }
+
+   location ~ \.php$ {
+      fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;  # Use socket or use IP:port
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+   }
+
+
+   location ~* ^/(css|dist|js|images|plugins|vendor)/.*\.(css|png|jpg|js|svg|ico|gif|pdf|woff|ttf)$ {
+
+   }
+
+   location ~* ^/(downloads)/.*\.(pdf|xml|html|csv|zip)$ {
+
+   }
+
+   location ~ ^/(ead.dtd|favicon.ico|robots.txt|sitemap.*)$ {
+
+   }
+
+#   location / {
+#      try_files $uri /index.php?$args;
+   #   if (-f $request_filename) {
+   #      return 403;
+   #   }
+#   }
+
+   location ~* /uploads/r/(.*)/conf/ {
+
+   }
+
+   location ~* ^/uploads/r/(.*)$ {
+      include /etc/nginx/fastcgi_params;
+      set $index /index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$index;
+      fastcgi_param SCRIPT_NAME $index;
+      fastcgi_pass atom;
+   }
+
+  location ~ ^/private/(.*)$ {
+      internal;
+      alias /app/web/$1;
+   }
+
+   location ~ ^/(index)\.php(/|$) {
+      include /etc/nginx/fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      fastcgi_split_path_info ^(.+\.php)(/.*)$;
+      fastcgi_pass atom;
+   }
+
+   location ~ \.php$ {
+      fastcgi_split_path_info ^(.+\.php)(/.+)$;
+      fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+      fastcgi_index index.php;
+      include fastcgi_params;
+   }
+
+
+#   location /sf {
+#      alias /opt/symfony1-1.4.20/data/web/sf/;
+#      allow all;
+#   }
+
+}

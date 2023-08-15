@@ -1,0 +1,36 @@
+FROM danielucb/ubuntu:20.04
+
+RUN apt update && apt upgrade -y
+
+RUN apt autoremove -y
+
+RUN apt install -y openjdk-11-jre-headless apt-transport-https software-properties-common
+RUN apt install -y php7.4 php-common php7.4-common php7.4-cli php7.4-curl php7.4-json php7.4-ldap php7.4-mysql php7.4-opcache php7.4-readline php7.4-xml php7.4-mbstring php7.4-xsl php7.4-zip php-apcu php-apcu-bc
+RUN apt install -y apache2
+RUN apt install -y zip
+
+RUN apt install -y wget nano
+
+RUN mkdir -p /app/lib/vendor
+
+ADD arquivos/symfony1-1.4.20.tar.gz /opt/lib/vendor
+
+#RUN ln -s /opt/lib/vendor/symfony1-1.4.20/data/bin/symfony /opt/symfony
+RUN mv /opt/lib/vendor/symfony1-1.4.20 /opt/lib/vendor/symfony
+
+#RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old
+COPY arquivos/apache2-projeto.conf /etc/apache2/sites-available/apache2-projeto.conf
+
+RUN ln -s /etc/apache2/sites-available/apache2-projeto.conf /etc/apache2/sites-enabled/apache2-projeto.conf
+
+RUN rm -rf /etc/apache2/sites-enabled/000-default.conf
+
+WORKDIR /app
+
+EXPOSE 80 8080
+
+CMD ["service apache2 start"]
+
+
+#docker build -f Dockerfile -t danielucb/symfony:1.4 .
+#docker run -dti --name symfony -v /home/t316048/Documentos/docker/sistemas/symfony/projeto_1:/app -p 80:80 -p 8080:8080 danielucb/symfony:1.4 /bin/bash
